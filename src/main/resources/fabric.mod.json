@@ -1,5 +1,5 @@
 {
-	"schemaVersion": 0.1,
+	"schemaVersion": 1,
 	"id": "quest-compass-plus",
 	"version": "${version}",
 	"name": "Quest Compass Plus",
@@ -20,10 +20,7 @@
 		]
 	},
 	"mixins": [
-		{
-			"config": "quest-compass-plus.mixins.json",
-			"environment": "client"
-		}
+		"quest-compass-plus.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.22",
