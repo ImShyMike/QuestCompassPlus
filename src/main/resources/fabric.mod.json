@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 0.1,
+	"id": "quest-compass-plus",
+	"version": "${version}",
+	"name": "Quest Compass Plus",
+	"description": "Monumenta quest compass helper",
+	"authors": [
+		"ShyMike"
+	],
+	"contact": {
+		"homepage": "https://discord.com/users/582648583635992622",
+		"sources": "https://discord.gg/monumenta"
+	},
+	"license": "MIT",
+	"icon": "assets/quest-compass-plus/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"shymike.questcompassplus.QuestCompassPlus"
+		]
+	},
+	"mixins": [
+		{
+			"config": "quest-compass-plus.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.19.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
