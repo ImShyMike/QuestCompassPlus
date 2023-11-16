@@ -1,11 +1,13 @@
 package shymike.questcompassplus.mixin;
 
+import shymike.questcompassplus.config.Config;
+import shymike.questcompassplus.utils.WaypointManager;
+import shymike.questcompassplus.utils.ServerUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.network.packet.s2c.play.PlayerSpawnPositionS2CPacket;
-import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,19 +17,21 @@ import net.minecraft.util.math.BlockPos;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientPlayNetworkHandler.class)
 public class PlayerSpawnPositionMixin {
-
+    private double xL = 0, yL = 0, zL = 0;
+    private MinecraftClient mc = MinecraftClient.getInstance();
     @Inject(method = "onPlayerSpawnPosition", at = @At("RETURN"))
     private void onPlayerSpawnPosition(PlayerSpawnPositionS2CPacket packet, CallbackInfo ci) {
-	BlockPos pos = packet.getPos();
-        double x = pos.getX();
-        double y = 100;
-        double z = pos.getZ();
-        
-        // Print to console
-        System.out.println("Compass Position: x=" + x + ", y=" + y + ", z=" + z);
-        
-        // Print to in-game chat
-        MinecraftClient mc = MinecraftClient.getInstance();
-        mc.inGameHud.getChatHud().addMessage(Text.literal("Compass Position: x=" + x + ", y=" + y + ", z=" + z));
+		BlockPos pos = packet.getPos();
+		double x = pos.getX(), y = pos.getY(), z = pos.getZ();
+		Config.setLastCoordinates(x, y, z);
+		if (Config.isModEnabled() && ServerUtils.isOnMonumenta()) {
+			// Anti spam
+			if (x != xL || y != yL || z != zL) {
+			    this.xL = x;
+			    this.yL = y;
+		        this.zL = z;
+			    WaypointManager.create(mc, x, y, z);
+			}
+		}
     }
 }
