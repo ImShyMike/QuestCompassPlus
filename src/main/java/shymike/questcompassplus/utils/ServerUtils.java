@@ -4,27 +4,19 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ServerInfo;
 
 public class ServerUtils {
-	static boolean bypass = false;
-	public static boolean isOnMonumenta() {
-	    MinecraftClient minecraft = MinecraftClient.getInstance();
-	    
-	    if (bypass != true) {
-		    if (minecraft.getNetworkHandler() != null && minecraft.player != null) {
-		        ServerInfo serverInfo = minecraft.getCurrentServerEntry();
+	public static boolean bypass = false;
+	private static MinecraftClient mc = MinecraftClient.getInstance();
 	
-		        String specificServerAddress = "server.playmonumenta.com";
-		        return serverInfo != null && serverInfo.address.equals(specificServerAddress) && !minecraft.isInSingleplayer();
+	public static boolean isOnMonumenta() {
+	    if (bypass != true) {
+		    if (mc.getNetworkHandler() != null && mc.player != null) {
+		        ServerInfo serverInfo = mc.getCurrentServerEntry();
+	
+		        String ServerAddress = "server.playmonumenta.com";
+		        return serverInfo != null && serverInfo.address.equals(ServerAddress) && !mc.isInSingleplayer();
 		    }
 	    } else { return true; }
 	        
 	    return false;
-	}
-	
-	public static void bypassMonumentaCheck() {
-		bypass = !bypass;
-	}
-	
-	public static boolean isBypassOn() {
-		return bypass;
 	}
 }
