@@ -4,8 +4,8 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.MutableText;
 
 public class ChatUtils {
-	private static final MinecraftClient minecraft = MinecraftClient.getInstance();
+	private static final MinecraftClient mc = MinecraftClient.getInstance();
     public static void send(MutableText message) {
-    	minecraft.inGameHud.getChatHud().addMessage(message);
+    	mc.inGameHud.getChatHud().addMessage(message);
     }
 }

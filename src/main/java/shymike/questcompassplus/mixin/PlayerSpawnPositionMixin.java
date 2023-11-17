@@ -23,8 +23,8 @@ public class PlayerSpawnPositionMixin {
     private void onPlayerSpawnPosition(PlayerSpawnPositionS2CPacket packet, CallbackInfo ci) {
 		BlockPos pos = packet.getPos();
 		double x = pos.getX(), y = pos.getY(), z = pos.getZ();
-		Config.setLastCoordinates(x, y, z);
-		if (Config.isModEnabled() && ServerUtils.isOnMonumenta()) {
+		Config.setCoordinates(x,y,z);
+		if (ServerUtils.isOnMonumenta()) {
 			// Anti spam
 			if (x != xL || y != yL || z != zL) {
 			    this.xL = x;
