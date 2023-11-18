@@ -1,7 +1,6 @@
 package shymike.questcompassplus.commands;
 
 import shymike.questcompassplus.config.Config;
-import shymike.questcompassplus.utils.ChatUtils;
 import shymike.questcompassplus.utils.DistanceCalculator;
 import shymike.questcompassplus.utils.RenderUtils;
 import shymike.questcompassplus.utils.ServerUtils;
@@ -47,7 +46,7 @@ public class CommandRegister {
 		    	.literal("toggle")
 				.executes(context -> {
 					Config.toggleIsModEnabled();
-					if (!Config.isModEnabled) { RenderUtils.line1 = ""; RenderUtils.line2 = ""; } else { RenderUtils.line1 = "Compass Position: " + RenderUtils.x + " " + RenderUtils.y + " " + RenderUtils.z; }
+					if (!Config.isModEnabled) { RenderUtils.line1 = ""; RenderUtils.line2 = ""; } else { RenderUtils.line1 = "Compass Position: " + (int)RenderUtils.x + " " + (int)RenderUtils.y + " " + (int)RenderUtils.z; }
 			    	context.getSource().sendFeedback(Text.literal("Quest Compass Plus is now " + (Config.isModEnabled ? "enabled" : "disabled")));
 			 		return 1;
 			 	})
@@ -58,11 +57,16 @@ public class CommandRegister {
 					.executes(context -> {
 						Vec3d playerPos = mc.player.getPos();
 						double distance = Math.round(DistanceCalculator.getDistance2D(playerPos.x, playerPos.z, Config.x, Config.z));
-						ChatUtils.send(Text.literal("Compass Position: x=" + playerPos.x + ", y=" + playerPos.y + ", z=" + playerPos.z + ", distance=" + distance).styled(style -> style
-				    			.withClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, Config.x+" "+Config.y+" "+Config.z))
-				    			.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("Click to copy coordinates to clipboard!")))));
-				 		return 1;
-				 	})
+						if (Config.waypointCopy) {
+							context.getSource().sendFeedback(Text.literal("Compass Position: x=" + (int)Config.x + ", y=" + (int)Config.y + ", z=" + (int)Config.z + ", distance=" + (int)distance).styled(style -> style
+									.withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/jm wpedit [name:\"Quest Location\", x:"+(int)Config.x+", y:"+(int)Config.y+", z:"+(int)Config.z+", dim:minecraft:overworld]"))
+									.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("Click to make waypoint!")))));
+						} else if (Config.chatFeedback) {
+							context.getSource().sendFeedback(Text.literal("Compass Position: x=" + (int)Config.x + ", y=" + (int)Config.y + ", z=" + (int)Config.z + ", distance=" + (int)distance).styled(style -> style
+					    			.withClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, (int)Config.x+" "+(int)Config.y+" "+(int)Config.z))
+					    			.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("Click to copy coordinates to clipboard!")))));
+						}
+						return 1;})
 			        .build();
 		    
 		    LiteralCommandNode<FabricClientCommandSource> debugNode = ClientCommandManager
@@ -77,7 +81,7 @@ public class CommandRegister {
 			    	.literal("force")
 					.executes(context -> {
 				    	ServerUtils.bypass = !ServerUtils.bypass;
-				    	context.getSource().sendFeedback(Text.literal("Bypass is: " + (ServerUtils.bypass ? "enabled" : "disabled")));
+				    	context.getSource().sendFeedback(Text.literal("Bypass is now " + (ServerUtils.bypass ? "enabled" : "disabled")));
 				 		return 1;
 				 	})
 			        .build();

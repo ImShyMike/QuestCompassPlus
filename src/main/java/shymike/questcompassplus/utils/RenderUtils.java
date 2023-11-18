@@ -12,7 +12,7 @@ import shymike.questcompassplus.config.Config;
 
 public class RenderUtils implements HudRenderCallback {
 	MinecraftClient mc = MinecraftClient.getInstance();
-	public static String line1 = "";
+	public static String line1 = "Compass Position: 0 0 0";
 	public static String line2 = "";
 	public static double x = 0, y = 0, z = 0;
 
