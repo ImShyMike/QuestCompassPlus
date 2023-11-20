@@ -6,12 +6,14 @@ public class Config {
 	public static boolean chatFeedback = false;
 	public static int color = 0;
 	public static boolean waypointCopy = false;
+	public static boolean requireCompass = true;
 	
-	static public void toggleIsModEnabled() { Config.isModEnabled = !Config.isModEnabled; onUpdate(); }
-	static public void toggleChatFeedback() { Config.chatFeedback = !Config.chatFeedback; onUpdate(); }
-	static public void toggleWaypointCopy() { Config.waypointCopy = !Config.waypointCopy; onUpdate(); }
-	static public void setCoordinates(double X, double Y, double Z) { Config.x = X; Config.y = Y; Config.z = Z; onUpdate(); }
-	static public void setColor(int value) { Config.color = value; onUpdate(); }
+	static public void toggleIsModEnabled() { isModEnabled = !isModEnabled; onUpdate(); }
+	static public void toggleChatFeedback() { chatFeedback = !chatFeedback; onUpdate(); }
+	static public void toggleWaypointCopy() { waypointCopy = !waypointCopy; onUpdate(); }
+	static public void toggleRequireCompass() { requireCompass = !requireCompass; onUpdate(); }
+	static public void setCoordinates(double X, double Y, double Z) { x = X; y = Y; z = Z; onUpdate(); }
+	static public void setColor(int value) { color = value; onUpdate(); }
 	
 	static private void onUpdate() {
 		// TODO: save configs to file

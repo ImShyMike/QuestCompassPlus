@@ -102,6 +102,15 @@ public class CommandRegister {
 				 		return 1;
 				 	})
 			        .build();
+		    
+		    LiteralCommandNode<FabricClientCommandSource> requireCompassNode = ClientCommandManager
+			    	.literal("require_compass")
+					.executes(context -> {
+						Config.toggleRequireCompass();
+				    	context.getSource().sendFeedback(Text.literal("Compass required is now " + (Config.requireCompass ? "required" : "not required")));
+				 		return 1;
+				 	})
+			        .build();
 
 		    dispatcher.getRoot().addChild(mainNode);
 			    mainNode.addChild(helpNode);
@@ -109,6 +118,7 @@ public class CommandRegister {
 			    mainNode.addChild(getterNode);
 			    mainNode.addChild(settingsNode);
 			    	settingsNode.addChild(chatFeedbackNode);
+			    	settingsNode.addChild(requireCompassNode);
 			    mainNode.addChild(debugNode);
 			    	debugNode.addChild(forceDebugNode);
 		});

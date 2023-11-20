@@ -3,7 +3,7 @@
 	"id": "quest-compass-plus",
 	"version": "${version}",
 	"name": "Quest Compass Plus",
-	"description": "Monumenta quest compass helper",
+	"description": "Monumenta quest compass QOL",
 	"authors": [
 		"ShyMike"
 	],
