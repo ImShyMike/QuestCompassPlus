@@ -89,7 +89,7 @@ public class CommandRegister {
 		    LiteralCommandNode<FabricClientCommandSource> settingsNode = ClientCommandManager
 			    	.literal("settings")
 					.executes(context -> {
-				    	context.getSource().sendFeedback(Text.literal("Settings List: chat_feedback"));
+				    	context.getSource().sendFeedback(Text.literal("Settings List: chat_feedback, require_compass, waypoint_create"));
 				 		return 1;
 				 	})
 			        .build();
@@ -111,6 +111,15 @@ public class CommandRegister {
 				 		return 1;
 				 	})
 			        .build();
+		    
+		    LiteralCommandNode<FabricClientCommandSource> waypointCreateNode = ClientCommandManager
+			    	.literal("waypoint_create")
+					.executes(context -> {
+						Config.toggleWaypointCopy();
+				    	context.getSource().sendFeedback(Text.literal("Waypoint create is now " + (Config.waypointCopy ? "enabled" : "disabled")));
+				 		return 1;
+				 	})
+			        .build();
 
 		    dispatcher.getRoot().addChild(mainNode);
 			    mainNode.addChild(helpNode);
@@ -119,6 +128,7 @@ public class CommandRegister {
 			    mainNode.addChild(settingsNode);
 			    	settingsNode.addChild(chatFeedbackNode);
 			    	settingsNode.addChild(requireCompassNode);
+			    	settingsNode.addChild(waypointCreateNode);
 			    mainNode.addChild(debugNode);
 			    	debugNode.addChild(forceDebugNode);
 		});
