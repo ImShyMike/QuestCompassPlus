@@ -1,6 +1,6 @@
 [![build](https://github.com/ImShyMike/QuestCompassPlus/actions/workflows/build.yml/badge.svg)](https://github.com/ImShyMike/QuestCompassPlus/actions/workflows/build.yml)
 [![GitHub release](https://img.shields.io/github/release/ImShyMike/QuestCompassPlus?include_prereleases=&sort=semver&color=blue)](https://github.com/ImShyMike/QuestCompassPlus/releases/)
-[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/ImShyMike/QuestCompassPlus/blob/main/LICENSE)
+[![License](https://img.shields.io/badge/License-GPL--3.0-blue)](https://github.com/ImShyMike/QuestCompassPlus/blob/main/LICENSE)
 [![issues - QuestCompassPlus](https://img.shields.io/github/issues/ImShyMike/QuestCompassPlus)](https://github.com/ImShyMike/QuestCompassPlus/issues)
 
 # Quest Compass Plus
@@ -18,4 +18,4 @@ For help regarding the mod dm me on discord [.shymike](https://discord.com/users
 **Q:** Why is the mod for 1.19.4 and not 1.20.1/2?  
 **A:** I made the mod for 1.19.4 so it is compatible with [Noelle's Monumenta Modpack](https://modrinth.com/modpack/noelles-monumenta-modpack).
 
-Released under [MIT](/LICENSE) by [@ImShyMike](https://github.com/ImShyMike).
+Released under [GPL-3.0](/LICENSE) by [@ImShyMike](https://github.com/ImShyMike).
