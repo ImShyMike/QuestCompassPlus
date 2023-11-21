@@ -1,6 +1,6 @@
 [![build](https://github.com/ImShyMike/QuestCompassPlus/actions/workflows/build.yml/badge.svg)](https://github.com/ImShyMike/QuestCompassPlus/actions/workflows/build.yml)
 [![GitHub release](https://img.shields.io/github/release/ImShyMike/QuestCompassPlus?include_prereleases=&sort=semver&color=blue)](https://github.com/ImShyMike/QuestCompassPlus/releases/)
-[![License](https://img.shields.io/badge/License-MIT-blue)](#license)
+[![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/ImShyMike/QuestCompassPlus/blob/main/LICENSE)
 [![issues - QuestCompassPlus](https://img.shields.io/github/issues/ImShyMike/QuestCompassPlus)](https://github.com/ImShyMike/QuestCompassPlus/issues)
 
 # Quest Compass Plus

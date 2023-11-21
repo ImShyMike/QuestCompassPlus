@@ -29,7 +29,7 @@ public class PlayerSpawnPositionMixin {
 			if (x != xL || y != yL || z != zL) {
 			    this.xL = x;
 			    this.yL = y;
-		        this.zL = z;
+			    this.zL = z;
 			    WaypointManager.create(mc, x, y, z);
 			}
 		}

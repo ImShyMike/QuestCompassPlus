@@ -1,6 +1,5 @@
 package shymike.questcompassplus.utils;
 
-import shymike.questcompassplus.QuestCompassPlus;
 import shymike.questcompassplus.config.Config;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.MinecraftClient;
