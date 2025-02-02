@@ -7,9 +7,11 @@ import net.minecraft.text.HoverEvent;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 
+import java.util.Objects;
+
 public class WaypointManager {
     public static void create(MinecraftClient mc, double x, double y, double z) {
-		Vec3d playerPos = mc.player.getPos();
+		Vec3d playerPos = Objects.requireNonNull(mc.player).getPos();
 		
 		double distance = Math.round(DistanceCalculator.getDistance2D(playerPos.x, playerPos.z, x, z));
 		RenderUtils.setCoordinates(x,y,z);

@@ -1,5 +1,6 @@
 package shymike.questcompassplus.mixin;
 
+import org.spongepowered.asm.mixin.Unique;
 import shymike.questcompassplus.config.Config;
 import shymike.questcompassplus.utils.WaypointManager;
 import shymike.questcompassplus.utils.ServerUtils;
@@ -17,8 +18,10 @@ import net.minecraft.util.math.BlockPos;
 @Environment(EnvType.CLIENT)
 @Mixin(ClientPlayNetworkHandler.class)
 public class PlayerSpawnPositionMixin {
-    private double xL = 0, yL = 0, zL = 0;
-    private MinecraftClient mc = MinecraftClient.getInstance();
+    @Unique
+	private double xL = 0, yL = 0, zL = 0;
+    @Unique
+	private final MinecraftClient mc = MinecraftClient.getInstance();
     @Inject(method = "onPlayerSpawnPosition", at = @At("RETURN"))
     private void onPlayerSpawnPosition(PlayerSpawnPositionS2CPacket packet, CallbackInfo ci) {
 		BlockPos pos = packet.getPos();

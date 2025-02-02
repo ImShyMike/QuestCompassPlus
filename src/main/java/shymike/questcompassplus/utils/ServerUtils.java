@@ -5,15 +5,15 @@ import net.minecraft.client.network.ServerInfo;
 
 public class ServerUtils {
 	public static boolean bypass = false;
-	private static MinecraftClient mc = MinecraftClient.getInstance();
+	private static final MinecraftClient mc = MinecraftClient.getInstance();
 	
 	public static boolean isOnMonumenta() {
-	    if (bypass != true) {
+	    if (!bypass) {
 		    if (mc.getNetworkHandler() != null && mc.player != null) {
 		        ServerInfo serverInfo = mc.getCurrentServerEntry();
 	
-		        String ServerAddress = "server.playmonumenta.com";
-		        return serverInfo != null && serverInfo.address.equals(ServerAddress) && !mc.isInSingleplayer();
+		        String ServerAddress = "playmonumenta.com";
+		        return serverInfo != null && serverInfo.address.contains(ServerAddress) && !mc.isInSingleplayer();
 		    }
 	    } else { return true; }
 	        
