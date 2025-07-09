@@ -22,7 +22,7 @@ public class WaypointManager {
 					ChatUtils.send(Text.literal("Compass Position: x=" + (int)Config.x + ", y=" + (int)Config.y + ", z=" + (int)Config.z + ", distance=" + (int)distance).styled(style -> style
 							.withClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, "/xaero_waypoint_add:Compass:C:"+(int)Config.x+":"+(int)Config.y+":"+(int)Config.z+":4:false:0:Internal_dim%" + dimension.replace(":", "$") + "_waypoints"))
 							.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("Click to make waypoint!")))));
-				} else if (Config.chatFeedback) {
+				} else {
 			    	ChatUtils.send(Text.literal("Compass Position: x=" + (int)Config.x + ", y=" + (int)Config.y + ", z=" + (int)Config.z + ", distance=" + (int)distance).styled(style -> style
 			    			.withClickEvent(new ClickEvent(ClickEvent.Action.COPY_TO_CLIPBOARD, (int)Config.x+" "+(int)Config.y+" "+(int)Config.z))
 			    			.withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal("Click to copy coordinates to clipboard!")))));
