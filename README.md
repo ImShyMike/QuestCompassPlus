@@ -5,7 +5,7 @@
 
 # Quest Compass Plus
 
-Minecraft fabric 1.20.4 mod made for the for the "Monumenta" minecraft server that adds QOL features related to the quest compass.
+Minecraft fabric 1.20.4 mod made for the "Monumenta" minecraft server that adds QOL features related to the quest compass.
 
 
 ## Mod Help
