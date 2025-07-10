@@ -5,16 +5,17 @@
 
 # Quest Compass Plus
 
-Minecraft fabric 1.19.4 and 1.20.4 mod for the minecraft server Monumenta that adds QOL features related to the quest compass. I'm new to modding so please report any bugs you may encounter.
+Minecraft fabric 1.20.4 mod made for the for the "Monumenta" minecraft server that adds QOL features related to the quest compass.
 
 
 ## Mod Help
 
-For help regarding the mod dm me on discord [.shymike](https://discord.com/users/582648583635992622), for bug reports/ feature requests just use github.
+For help regarding the mod dm me on discord [.shymike](https://discord.com/users/582648583635992622) or create an issue, for bug reports/ feature requests just use github issues.
 
-## FAQ
+## Thanks
 
-**Q:** Why is the mod for 1.19.4 and not 1.20.1/2?  
-**A:** ~~I made the mod for 1.19.4 so it is compatible with [Noelle's Monumenta Modpack](https://modrinth.com/modpack/noelles-monumenta-modpack).~~ The mod now works for 1.19.4 and 1.20.4.
+Huge thanks to [@RectangularObject](https://github.com/RectangularObject) for the config saving and Xaero's Waypoints support!
+
+## License
 
 Released under [GPL-3.0](https://github.com/ImShyMike/QuestCompassPlus/blob/main/LICENSE) by [@ImShyMike](https://github.com/ImShyMike).
