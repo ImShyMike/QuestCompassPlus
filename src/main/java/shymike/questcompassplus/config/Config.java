@@ -8,7 +8,7 @@ import net.minecraft.util.Identifier;
 
 public class Config {
 	public static ConfigClassHandler<Config> HANDLER = ConfigClassHandler.createBuilder(Config.class)
-			.id(new Identifier("quest-compass-plus", "clientConfig"))
+			.id(new Identifier("quest-compass-plus", "configuration"))
 			.serializer(config -> GsonConfigSerializerBuilder.create(config)
 					.setPath(FabricLoader.getInstance().getConfigDir().resolve("quest-compass-plus-config.json5"))
 					.setJson5(true)
